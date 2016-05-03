@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+.loginButton{
+	background-color: black;
+	color: white;
+	padding-right: 10px;
+}
+h1{color: red;
+font-style: italic;}

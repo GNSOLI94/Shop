@@ -20,8 +20,9 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
 	<mvc:annotation-driven />
 	<context:annotation-config />
 
 </beans>
-<!-- value="org.springframework.web.servlet.view.JstlView" -->

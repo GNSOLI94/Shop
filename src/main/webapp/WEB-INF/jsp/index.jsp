@@ -1,9 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="resources/MyCustomCSS.css" rel="stylesheet" type="text/css" />
 </head>
-<body>Ciao!!!
+<body>
+	<h1>Ciao!!!</h1>
+	<form:form action="loginForm" method="post" id="loginForm" commandName="nick">
+		<input type="text"  class="loginEditText" name="nick"/>
+		<input type="submit" class="loginButton" value="CIAO" />
+	</form:form>
 </body>
 </html>
