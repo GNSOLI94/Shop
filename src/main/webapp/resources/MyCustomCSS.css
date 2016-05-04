@@ -4,6 +4,9 @@
 	background-color: black;
 	color: white;
 	padding-right: 10px;
+	border-color: lime;
+	border-style: ridge;
+	cursor: progress;
 }
 h1{color: red;
 font-style: italic;}

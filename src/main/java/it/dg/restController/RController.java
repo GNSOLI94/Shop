@@ -24,9 +24,9 @@ public class RController {
 	}
 
 	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
-	public Item loginForm(@RequestParam("nick") String username) {
+	public ModelAndView loginForm(@RequestParam("nick") String username) {
 		System.out.println("Username send is=" + username);
-		return itemService.createNewItem();
+		return new ModelAndView("welcome", "nick", username);
 	}
 
 	@RequestMapping(value = "/path/{path}", method = RequestMethod.GET)

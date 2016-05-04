@@ -7,8 +7,8 @@
 </head>
 <body>
 	<h1>Ciao!!!</h1>
-	<form:form action="loginForm" method="post" id="loginForm" commandName="nick">
-		<input type="text"  class="loginEditText" name="nick"/>
+	<form:form action="loginForm" method="post" id="loginForm">
+		<input type="text" class="loginEditText" name="nick" id="input" placeholder="insert a nickname"/>
 		<input type="submit" class="loginButton" value="CIAO" />
 	</form:form>
 </body>
