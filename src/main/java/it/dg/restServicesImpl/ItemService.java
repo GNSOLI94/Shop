@@ -1,4 +1,4 @@
-package it.dg.restServices;
+package it.dg.restServicesImpl;
 
 import org.springframework.stereotype.Service;
 

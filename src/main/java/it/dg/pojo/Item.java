@@ -1,17 +1,18 @@
 package it.dg.pojo;
 
 import org.springframework.stereotype.Component;
+
 @Component
 public class Item {
-	
+
 	private String name;
 	private String surname;
 	private String birth;
-	
-	public Item(){
-		
+
+	public Item() {
+
 	}
-	
+
 	public Item(String name, String surname, String birth) {
 		super();
 		this.name = name;
@@ -42,5 +43,11 @@ public class Item {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return name + "," + surname + "," + birth;
+	}
+
 }

@@ -1,28 +1,82 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jdbc 
+                           http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+                           http://www.springframework.org/schema/data/jpa
+                           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	xmlns:mvc="http://www.springframework.org/schema/mvc">
 
 	<context:component-scan base-package="it.dg" />
 
-	<bean id="viewResolver"
+
+	<beans:bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-	</bean>
+	</beans:bean>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+	<!-- SPRING - JPA -->
+	<jpa:repositories base-package="it.dg.repository" />
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />
 
+	<beans:bean class="org.springframework.orm.jpa.JpaTransactionManager"
+		id="transactionManager">
+		<beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+		<beans:property name="jpaDialect">
+			<beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</beans:property>
+	</beans:bean>
+	<beans:bean id="dataSourceMysql" name="dataSourceMysql"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url">
+			<beans:value>
+				jdbc:mysql://localhost:3306/local_test	
+			</beans:value>
+		</beans:property>
+
+<!-- cj. -->
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="root" />
+	</beans:bean>
+
+	<beans:bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<beans:property name="dataSource" ref="dataSourceMysql" />
+		<property name="persistenceUnitName" value="persistenceUnit" />
+		<beans:property name="packagesToScan" value="it.dg.pojo" />
+		<beans:property name="jpaVendorAdapter">
+			<beans:bean
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<beans:property name="generateDdl" value="true" />
+				<beans:property name="showSql" value="false" />
+				<beans:property name="databasePlatform"
+					value="org.hibernate.dialect.MySQLDialect" />
+				<beans:property name="database" value="MYSQL" />
+			</beans:bean>
+		</beans:property>
+		<beans:property name="jpaProperties">
+			<beans:value>
+				<!-- hibernate.cache.use_second_level_cache = true hibernate.cache.region.factory_class 
+					= org.hibernate.cache.ehcache.EhCacheRegionFactory hibernate.cache.use_query_cache 
+					= true hibernate.generate_statistics = true -->
+			</beans:value>
+		</beans:property>
+	</beans:bean>
+	<!-- <beans:bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" 
+		/> -->
 	<mvc:annotation-driven />
 	<context:annotation-config />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-</beans>
+
+</beans:beans>
