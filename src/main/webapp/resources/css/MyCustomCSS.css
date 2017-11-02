@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
+	font-style: inherit;
+}
+
+.titleFormLogin{
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.form-signin {
+	max-width: 330px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.form-control {
+	height: 42px;
+}
+
+#btnFormInput {
+	height: 42px;
+	margin-top: 20px;
+}
+
+.form-register {
+	max-width: 530px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.blockRegister {
+	margin-top: 20px;
+}
+
