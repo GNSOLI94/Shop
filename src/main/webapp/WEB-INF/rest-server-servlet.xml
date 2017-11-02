@@ -40,14 +40,17 @@
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url">
 			<beans:value>
-				jdbc:mysql://localhost:3306/local_test	
+				jdbc:mysql://localhost:3306/dbsponge	
 			</beans:value>
 		</beans:property>
 
-<!-- cj. -->
 		<beans:property name="username" value="root" />
-		<beans:property name="password" value="root" />
+		<beans:property name="password" value="" />
 	</beans:bean>
+	
+<!--     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+<!--         <property name="maxUploadSize" value="100000000"/> -->
+<!--     </beans:bean> -->
 
 	<beans:bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -77,6 +80,5 @@
 	<mvc:annotation-driven />
 	<context:annotation-config />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-
 
 </beans:beans>

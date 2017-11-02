@@ -6,9 +6,34 @@
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>RestServer</name>
+	
 
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <artifactId>maven-war-plugin</artifactId>
+			  <version>2.3</version>
+			  <configuration>
+			    <failOnMissingWebXml>false</failOnMissingWebXml>
+			  </configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -45,12 +70,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		
 		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+				 <scope>provided</scope>
 		</dependency>
 
 
@@ -167,11 +193,45 @@
 			<version>1.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+		<!-- Spring Security -->
+<!-- 		questa dovrebbe essere la dipendenza corretta -->
+<!-- 			<dependency> -->
+<!-- 			    <groupId>org.springframework.security</groupId> -->
+<!-- 			    <artifactId>spring-security-config</artifactId> -->
+<!-- 			    <version>4.1.0.RELEASE</version> -->
+<!-- 			</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-web</artifactId> -->
+<!-- 			<version>3.2.0.RELEASE</version> -->
+<!-- 		</dependency> -->
+	
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-config</artifactId> -->
+<!-- 			<version>3.2.0.RELEASE</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-core</artifactId> -->
+<!-- 			<version>3.2.0.RELEASE</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-samples-messages-jc</artifactId> -->
+<!-- 			<version>3.2.0.RELEASE</version> -->
+<!--       		<scope>compile</scope> -->
+<!-- 		</dependency> -->
 
 
 	</dependencies>
-	<build>
-		<finalName>RestServer</finalName>
-	</build>
 
 </project>
