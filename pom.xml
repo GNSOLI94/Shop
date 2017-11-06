@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>RestServer</groupId>
 	<artifactId>RestServer</artifactId>
@@ -7,7 +8,6 @@
 	<packaging>war</packaging>
 	<name>RestServer</name>
 	
-
 	<build>
 		<plugins>
 			<plugin>
@@ -27,6 +27,17 @@
 		</plugins>
 	</build>
 
+	<properties>
+	  <spring.version>4.3.10.RELEASE</spring.version>
+<!-- 	  <jackson.version>2.8.8</jackson.version> -->
+<!-- 	  <mysql.version>5.1.42</mysql.version> -->
+<!-- 	  <hib.core.version>5.2.10.Final</hib.core.version> -->
+<!-- 	  <data.jpa.version>1.0.0.RELEASE</data.jpa.version> -->
+<!-- 	  <validation.version>1.0.0.GA</validation.version> -->
+	  <spring.security.version>4.2.3.RELEASE</spring.security.version>
+<!-- 	  <log4j.version>2.9.1</log4j.version> -->
+	 </properties>
+
 	<dependencies>
 
 		<dependency>
@@ -38,31 +49,31 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.5.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
@@ -200,38 +211,18 @@
 		</dependency>
 
 		<!-- Spring Security -->
-<!-- 		questa dovrebbe essere la dipendenza corretta -->
-<!-- 			<dependency> -->
-<!-- 			    <groupId>org.springframework.security</groupId> -->
-<!-- 			    <artifactId>spring-security-config</artifactId> -->
-<!-- 			    <version>4.1.0.RELEASE</version> -->
-<!-- 			</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.security</groupId> -->
-<!-- 			<artifactId>spring-security-web</artifactId> -->
-<!-- 			<version>3.2.0.RELEASE</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${spring.security.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
 	
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.security</groupId> -->
-<!-- 			<artifactId>spring-security-config</artifactId> -->
-<!-- 			<version>3.2.0.RELEASE</version> -->
-<!-- 		</dependency> -->
-		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.security</groupId> -->
-<!-- 			<artifactId>spring-security-core</artifactId> -->
-<!-- 			<version>3.2.0.RELEASE</version> -->
-<!-- 		</dependency> -->
-		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.security</groupId> -->
-<!-- 			<artifactId>spring-security-samples-messages-jc</artifactId> -->
-<!-- 			<version>3.2.0.RELEASE</version> -->
-<!--       		<scope>compile</scope> -->
-<!-- 		</dependency> -->
-
-
 	</dependencies>
 
 </project>

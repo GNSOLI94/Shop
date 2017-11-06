@@ -28,7 +28,7 @@
 		<div class="form-signin">
 			<h1 class="titleFormLogin">Welcome</h1>
 			<hr>
-			<form:form action="/RestServer/loginForm" method="post" id="loginForm">
+			<form:form action="/RestServer/home" method="post" id="loginForm">
 				<input type="text" class="form-control" placeholder="Username" id="formEmail" autocomplete="on" onchange="controlMail()" name="email"/>
 				<input type="password" class="form-control" placeholder="Password" id="formPsw" name="pwd" style="margin-top: 10px"/>
 				<button class="btn btn-lg btn-primary btn-block" type="submit" id="btnFormInput">Login</button>

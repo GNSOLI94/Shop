@@ -38,7 +38,7 @@
 	
 		<div class="row">
 			<div class="col-md-6">
-				<form action="/RestServer/caricafoto" enctype="multipart/form-data" method="POST">
+				<form action="/RestServer/uploadfoto" enctype="multipart/form-data" method="POST">
 					<div class="form-group">
 						<input type="text" class="form-control" name="descrizioneFoto"/>
 					</div>

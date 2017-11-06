@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.dg.pojo.FotoBean;
 import it.dg.pojo.User;
 import restServicesInterfaces.HomeServiceInterface;
 
@@ -30,7 +30,7 @@ class HomeController {
 	private HomeServiceInterface hsi;
 
 	// home page
-	@RequestMapping("/home")
+	@RequestMapping("/homeForm")
 	public ModelAndView homeGet(User u, HttpSession session) {
 		if(session.getAttribute("idUtente") == null)
 			return new ModelAndView("login");
@@ -53,19 +53,19 @@ class HomeController {
 	
 	// form invio dati login POST
 	@RequestMapping(value="/uploadfoto", method = RequestMethod.POST)
-	public ModelAndView uploadFotoPost(@ModelAttribute("fotoForm") MultipartFile photoToUpload, String descrizione, HttpSession session, BindingResult bindingResult) {
+	public ModelAndView uploadFotoPost(MultipartFile photoToUpload, String descrizione, HttpSession session) {
 		//TODO migliorare i controlli
 		
-//		FotoForm fotoForm = new FotoForm();
-//		
-//		if(photoToUpload != null) {
+		FotoBean fotoForm = new FotoBean();
+		
+		if(photoToUpload != null) {
 //			fotoForm.setPhotoToUpload(photoToUpload);
-//			fotoForm.setDescrizioneFoto(descrizione);
-//			
+			fotoForm.setDescrizione(descrizione);
+			
 //			hsi.insertFoto(fotoForm);
-//			return new ModelAndView();
-//		}
-//		else
+			return new ModelAndView();
+		}
+		else
 			return new ModelAndView("home");
 	}
 	

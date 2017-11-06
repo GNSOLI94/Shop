@@ -37,7 +37,7 @@ public class LoginController {
 	}
 	
 	// form invio dati login POST
-	@RequestMapping("/loginForm")
+	@RequestMapping("/home")
 	public ModelAndView loginForm(String email, String pwd, HttpSession session) {
 		try{
 			if((email==null || email.equals("")) && (pwd==null || pwd.equals("")))
@@ -58,6 +58,11 @@ public class LoginController {
 		}
 	}
 
+	// Se scade la sessione torna alla login
+	@RequestMapping("/sessionExpired")
+	public ModelAndView sessionExpired(HttpSession session) {
+		return new ModelAndView("login");
+	}
 
 	
 	/*		Json ex		*/
