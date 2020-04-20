@@ -1,6 +1,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
@@ -27,7 +28,7 @@
 	<!-- SPRING - JPA -->
 	<jpa:repositories base-package="it.dg.repository" />
 
-
+<!-- mysqld@localhost -->
 	<beans:bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
 		<beans:property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -40,12 +41,12 @@
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url">
 			<beans:value>
-				jdbc:mysql://localhost:3306/dbsponge	
+				jdbc:mysql://localhost:3306/crudDb	
 			</beans:value>
 		</beans:property>
 
 		<beans:property name="username" value="root" />
-		<beans:property name="password" value="" />
+		<beans:property name="password" value="root" />
 	</beans:bean>
 	
 <!--     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->

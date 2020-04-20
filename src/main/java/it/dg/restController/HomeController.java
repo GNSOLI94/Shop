@@ -35,7 +35,7 @@ class HomeController {
 		if(session.getAttribute("idUtente") == null)
 			return new ModelAndView("login");
 		
-		ModelAndView utenteView = new ModelAndView("home");
+		ModelAndView utenteView = new ModelAndView("homeForm");
 		utenteView.addObject("nomeUser", u.getNome());
 		utenteView.addObject("cognomeUser", u.getCognome());
 //		utenteView.addObject("fotoForm", new FotoForm());
@@ -60,7 +60,7 @@ class HomeController {
 		
 		if(photoToUpload != null) {
 //			fotoForm.setPhotoToUpload(photoToUpload);
-			fotoForm.setDescrizione(descrizione);
+//			fotoForm.setDescrizione(descrizione);
 			
 //			hsi.insertFoto(fotoForm);
 			return new ModelAndView();

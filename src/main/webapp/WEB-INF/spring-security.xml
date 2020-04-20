@@ -16,12 +16,17 @@
         <security:intercept-url pattern="/sessionExpired" access="permitAll" />
         <security:intercept-url pattern="/Access_Denied" access="permitAll" />
         <security:intercept-url pattern="/public/**" access="permitAll" />
-        <security:intercept-url pattern="/loginForm" access="permitAll" />
-        <security:intercept-url pattern="/resources/**" access="permitAll" />
-        <security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+        <security:intercept-url pattern="/login" access="permitAll" />
+<!--         <security:intercept-url pattern="/resources/**" access="permitAll" /> -->
+<!--         <security:intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" /> -->
  
-        <security:form-login authentication-failure-url="/Access_Denied" default-target-url="/bbUser" password-parameter="bb_pass_bb"
-            username-parameter="bb_user_bb" login-page="/loginForm" login-processing-url="/bb_login" />
+        <security:form-login 
+        	login-page="/login" 
+        	default-target-url="/home" 
+        	login-processing-url="/home" 
+        	authentication-failure-url="/Access_Denied"  
+            username-parameter="email" 
+        	password-parameter="pwd"  />
  
         <security:session-management invalid-session-url="/sessionExpired" session-fixation-protection="newSession">
             <concurrency-control max-sessions="1" />
@@ -29,7 +34,7 @@
  
         <security:access-denied-handler error-page="/403.jsp" />
  
-        <security:logout logout-success-url="/loginForm" invalidate-session="true" delete-cookies="JSESSIONID" logout-url="/bbLogout" />
+        <security:logout logout-success-url="/login" invalidate-session="true" delete-cookies="JSESSIONID" logout-url="/bbLogout" />
         <csrf />
     </security:http>
    
