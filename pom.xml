@@ -49,7 +49,7 @@
 <!-- 	  <hib.core.version>5.2.10.Final</hib.core.version> -->
 <!-- 	  <data.jpa.version>1.0.0.RELEASE</data.jpa.version> -->
 <!-- 	  <validation.version>1.0.0.GA</validation.version> -->
-	  <spring.security.version>4.2.3.RELEASE</spring.security.version>
+	  <spring.security.version>5.2.10.RELEASE</spring.security.version>
 <!-- 	  <log4j.version>2.9.1</log4j.version> -->
 	 </properties>
 
