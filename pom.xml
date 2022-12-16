@@ -43,7 +43,7 @@
 	</build>
 
 	<properties>
-	  <spring.version>4.3.10.RELEASE</spring.version>
+	  <spring.version>5.2.20.RELEASE</spring.version>
 <!-- 	  <jackson.version>2.8.8</jackson.version> -->
 <!-- 	  <mysql.version>5.1.42</mysql.version> -->
 <!-- 	  <hib.core.version>5.2.10.Final</hib.core.version> -->
